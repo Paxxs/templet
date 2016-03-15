@@ -32,7 +32,7 @@
 			.replace(/\{\{(#|\/|\^|&|\$)?(.+?)\}\}/g,function(整段文字,动作,管道){
 
 			if(管道=='.')
-				管道='$value';
+				管道='_value';
 			管道=管道.split('|');
 
 			钥匙=管道.shift();
@@ -57,11 +57,11 @@
 				
 					return '");\
 					(function(){\
-						var $value;\
-						var $key;\
+						var _value;\
+						var _key;\
 						if( typeof('+钥匙+')!=="undefined" && '+钥匙+' && (钥匙='+钥匙和管道+'))\
-						for($key in '+钥匙+')\
-							with($value='+钥匙+'[$key]){\
+						for(_key in '+钥匙+')\
+							with(_value='+钥匙+'[_key]){\
 							$return.push("';
 
 					break;
@@ -100,7 +100,7 @@
 
 					return '");\
 						if(typeof('+钥匙+')!=="undefined")\
-							$return.push(模板.编码成网页('+钥匙和管道+'||\'\'));\
+							$return.push(编码成网页('+钥匙和管道+'||\'\'));\
 						\
 						$return.push("';
 
@@ -109,7 +109,7 @@
 
 					return '");\
 						if(typeof('+钥匙+')!=="undefined")\
-							$return.push(模板.编码成文本('+钥匙和管道+'||\'\'));\
+							$return.push(编码成文本('+钥匙和管道+'||\'\'));\
 						\
 						$return.push("';
 
@@ -125,10 +125,10 @@
 			}\
 			return $return.join(\'\');';
 
-		return Function('$data',模板字串);
+		return Function('$data','编码成文本','编码成网页',模板字串);
 	},
 	运转=function(模板字串,数据,作用域){
-		return 编译模板(模板字串).call(作用域||上帝,数据);
+		return 编译模板(模板字串).call(作用域||上帝,数据,编码成文本,编码成网页);
 	};
 	
 	上帝.模板={
