@@ -11,3 +11,7 @@
 
 并没有文档，请对照 `simple.html` 演示。
 
+#演示
+
+[http://front.dog/templet/](http://front.dog/templet/);
+
