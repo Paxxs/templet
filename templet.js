@@ -59,7 +59,7 @@
 					(function(){\
 						var $value;\
 						var $key;\
-						if( typeof('+钥匙+')!="undefined" && '+钥匙+' && (钥匙='+钥匙和管道+'))\
+						if( typeof('+钥匙+')!=="undefined" && '+钥匙+' && (钥匙='+钥匙和管道+'))\
 						for($key in '+钥匙+')\
 							with($value='+钥匙+'[$key]){\
 							$return.push("';
@@ -70,7 +70,7 @@
 
 					return '");\
 					(function(){\
-						if( typeof('+钥匙+')!="undefined" && '+钥匙+' ){\
+						if( typeof('+钥匙+')!=="undefined" && '+钥匙+' ){\
 							$return.push("';
 				
 					break;
@@ -79,7 +79,7 @@
 
 					return '");\
 					(function(){\
-						if( typeof('+钥匙+')=="undefined" || !'+钥匙+' ){\
+						if( typeof('+钥匙+')==="undefined" || !'+钥匙+' ){\
 							$return.push("';
 				
 					break;
@@ -99,7 +99,7 @@
 				case '&':
 
 					return '");\
-						if(typeof('+钥匙+')!="undefined")\
+						if(typeof('+钥匙+')!=="undefined")\
 							$return.push(模板.编码成网页('+钥匙和管道+'||\'\'));\
 						\
 						$return.push("';
@@ -108,7 +108,7 @@
 				default:
 
 					return '");\
-						if(typeof('+钥匙+')!="undefined")\
+						if(typeof('+钥匙+')!=="undefined")\
 							$return.push(模板.编码成文本('+钥匙和管道+'||\'\'));\
 						\
 						$return.push("';
@@ -125,8 +125,6 @@
 			}\
 			return $return.join(\'\');';
 
-		//模板字串=模板字串.replace(/[\n\r\t]/g,'');
-		A=模板字串;
 		return Function('$data',模板字串);
 	},
 	运转=function(模板字串,数据,作用域){
