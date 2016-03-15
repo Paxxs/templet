@@ -28,6 +28,7 @@
 		已打开的钥匙们=[],
 		模板字串=模板字串
 			.replace(/[\n\r\t]/g,'')
+			.replace(/"/g,'\\"')
 			.replace(/\{\{(#|\/|\^|&|\$)?(.+?)\}\}/g,function(整段文字,动作,管道){
 
 			if(管道=='.')
@@ -124,6 +125,8 @@
 			}\
 			return $return.join(\'\');';
 
+		//模板字串=模板字串.replace(/[\n\r\t]/g,'');
+		A=模板字串;
 		return Function('$data',模板字串);
 	},
 	运转=function(模板字串,数据,作用域){
