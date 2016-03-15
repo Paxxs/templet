@@ -5,7 +5,7 @@
 
 ###现已支持
 变量、子属性、变量判断、运算判断、数组循环、对象循环、管道。
-
+编译过的模板可复用。
 ------------
 #文档
 
@@ -13,5 +13,5 @@
 
 #演示
 
-[http://front.dog/templet/](http://front.dog/templet/);
+[http://front.dog/templet/](http://front.dog/templet/)
 
