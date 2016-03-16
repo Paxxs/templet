@@ -26,13 +26,21 @@
 	编译模板=function(模板字串){
 		var 
 		已打开的钥匙们=[],
+		钥匙前缀们='_',
 		模板字串=模板字串
 			.replace(/[\n\r\t]/g,'')
 			.replace(/"/g,'\\"')
 			.replace(/\{\{(#|\/|\^|&|\$)?(.+?)\}\}/g,function(整段文字,动作,管道){
 
+
+
+
+
+
+
 			if(管道=='.')
-				管道='_value';
+				管道=钥匙前缀们+'value';
+
 			管道=管道.split('|');
 
 			钥匙=管道.shift();
@@ -50,18 +58,24 @@
 
 			钥匙和管道=管道前+钥匙+管道后;
 
+
+
+			钥匙前缀们=[];
+			钥匙前缀们.length=已打开的钥匙们.length+3;
+			钥匙前缀们=钥匙前缀们.join('_');
+
+
 			switch(动作){
 				case '#':
 					已打开的钥匙们.push(钥匙);
 
-				
 					return '");\
 					(function(){\
-						var _value;\
-						var _key;\
+						var '+钥匙前缀们+'value;\
+						var '+钥匙前缀们+'key;\
 						if( typeof('+钥匙+')!=="undefined" && '+钥匙+' && (钥匙='+钥匙和管道+'))\
-						for(_key in '+钥匙+')\
-							with(_value='+钥匙+'[_key]){\
+						for('+钥匙前缀们+'key in '+钥匙+')\
+							with('+钥匙前缀们+'value='+钥匙+'['+钥匙前缀们+'key]){\
 							$return.push("';
 
 					break;
@@ -120,6 +134,8 @@
 
 		模板字串='\
 			var $return=[];\
+			var _value=$data;\
+			var _key;\
 			with($data){\
 				$return.push("'+模板字串+'");\
 			}\
@@ -128,6 +144,7 @@
 		return Function('$data','编码成文本','编码成网页',模板字串);
 	},
 	运转=function(模板字串,数据,作用域){
+
 		return 编译模板(模板字串).call(作用域||上帝,数据,编码成文本,编码成网页);
 	};
 	
