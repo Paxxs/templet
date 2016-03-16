@@ -32,7 +32,7 @@
 			.replace(/\{\{(#|\/|\^|&|\$)?(.+?)\}\}/g,function(整段文字,动作,管道){
 
 			if(管道=='.')
-				管道='_value';
+				管道='$value';
 			管道=管道.split('|');
 
 			钥匙=管道.shift();
@@ -57,11 +57,11 @@
 				
 					return '");\
 					(function(){\
-						var _value;\
-						var _key;\
+						var $value;\
+						var $key;\
 						if( typeof('+钥匙+')!=="undefined" && '+钥匙+' && (钥匙='+钥匙和管道+'))\
-						for(_key in '+钥匙+')\
-							with(_value='+钥匙+'[_key]){\
+						for($key in '+钥匙+')\
+							with($value='+钥匙+'[$key]){\
 							$return.push("';
 
 					break;
