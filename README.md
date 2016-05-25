@@ -16,3 +16,6 @@
 
 [http://front.dog/templet/](http://front.dog/templet/)
 
+#用例
+
+[鲁迅追番](http://luxun.pro/)
