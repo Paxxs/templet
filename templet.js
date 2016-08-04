@@ -70,7 +70,7 @@
 					(function(){\
 						var '+钥匙前缀们+'value;\
 						var '+钥匙前缀们+'key;\
-						if( typeof('+钥匙+')!=="undefined" && '+钥匙+' && ('+钥匙+'='+钥匙和管道+'))\
+						if( typeof('+钥匙+')!=="undefined" && ('+钥匙+') && ('+钥匙+'='+钥匙和管道+'))\
 						for('+钥匙前缀们+'key in '+钥匙+')\
 						with('+钥匙前缀们+'value='+钥匙+'['+钥匙前缀们+'key]){\
 							var _钥匙='+钥匙前缀们+'key;\
@@ -83,7 +83,7 @@
 
 					return '");\
 					(function(){\
-						if( typeof('+钥匙+')!=="undefined" && '+钥匙+' ){\
+						if( typeof('+钥匙+')!=="undefined" && ('+钥匙+') ){\
 							$return.push("';
 				
 					break;
@@ -92,7 +92,7 @@
 
 					return '");\
 					(function(){\
-						if( typeof('+钥匙+')==="undefined" || !'+钥匙+' ){\
+						if( typeof('+钥匙+')==="undefined" || !('+钥匙+') ){\
 							$return.push("';
 				
 					break;
